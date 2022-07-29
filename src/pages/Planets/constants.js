@@ -2,6 +2,8 @@ export const LOADING = 'LOADING';
 
 export const INITIATE_LIST = 'INITIATE_LIST';
 
+export const SEARCH_LIST = 'SEARCH_LIST';
+
 export const TABLE_HEADERS = Object.freeze({
   name: 'Name',
   population: 'Population',

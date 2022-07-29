@@ -1,4 +1,4 @@
-import { LOADING, INITIATE_LIST } from './constants.js';
+import { LOADING, INITIATE_LIST, SEARCH_LIST } from './constants.js';
 import axios from "axios";
 
 const isLoading = (isLoading = false) => {
@@ -14,6 +14,13 @@ const initiateTableList = (list = []) => {
     payload: list,
   };
 }
+
+const searchTable = (searchString) => {
+  return {
+    type: SEARCH_LIST,
+    payload: searchString,
+  };
+};
 
 const initializeTable = () => {
   return dispatch => {
@@ -32,5 +39,6 @@ const initializeTable = () => {
 
 export {
   isLoading,
+  searchTable,
   initializeTable,
 };

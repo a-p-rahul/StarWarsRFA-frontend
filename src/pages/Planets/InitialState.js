@@ -1,9 +1,8 @@
-// the below properties are intentionally genericc
+// the below properties are intentionally generic
 const InitialState = {
-  title: 'Planets List',
+  searchString: '',
   loading: false,
   list: [],
-  results: [],
 };
 
 export default InitialState;

@@ -1,19 +1,18 @@
 import React, { useEffect } from "react";
-import {connect} from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import {TABLE_HEADERS, TABLE_COLUMN_ARRANGEMENT} from './constants';
+import { TABLE_HEADERS, TABLE_COLUMN_ARRANGEMENT } from './constants';
 import SimpleTable from 'src/components/SimpleTable';
 import { Box, LinearProgress } from "@mui/material";
 import { initializeTable } from "./actions";
+import getSearchResultSelector from 'src/selectors/SearchResultSelector';
 
-const PlanetsList = ({ results, title, loading, initialise }) => {
-
+const PlanetsList = ({ initialise }) => {
+  const loading = useSelector((state) => state.planets.loading );
+  const results = useSelector(getSearchResultSelector("planets"));
   useEffect(() => {
-    (async () => {
-      initialise();
-    })();
+    initialise();
   }, []);
-  
   return (
     <>
       { loading && (
@@ -30,14 +29,6 @@ const PlanetsList = ({ results, title, loading, initialise }) => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    results: state.planets && state.planets.results || [],
-    title: state.planets && state.planets.title || "",
-    loading: state.planets && state.planets.loading || false,
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
     initialise: () => {
@@ -47,11 +38,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 PlanetsList.propTypes = {
-  results: PropTypes.array,
-  title: PropTypes.string,
-  loading: PropTypes.bool,
-  isWorking: PropTypes.func,
-  initialise: PropTypes.func,
+  initialise: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlanetsList);
+export default connect(null, mapDispatchToProps)(PlanetsList);

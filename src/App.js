@@ -8,20 +8,23 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import './App.css';
 import AppHeader from './components/AppHeader';
+import { Container } from '@mui/material';
 
 const App = () => {
   return (
     <div className="App">
       <AppHeader />
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/planets" element={<Planets />} />
-        <Route path="/species" element={<Species />} />
-        <Route path="/vehicles" element={<Vehicles />} />
-        <Route path="/people" element={<People />} />
-      </Routes>
+      <Container maxWidth="xl" >
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route path="/planets" element={<Planets />} />
+          <Route path="/species" element={<Species />} />
+          <Route path="/vehicles" element={<Vehicles />} />
+          <Route path="/people" element={<People />} />
+          <Route path="*" element={<Welcome />} />
+        </Routes>
+      </Container>
     </div>
   );
 };

@@ -40,6 +40,7 @@ const NavMenu = ({ onClose }) => (
     onKeyDown={onClose}
   >
     <List>
+      <NavItem text={"GalaxyNet"} />
       {MenuItems.map(({ text, link, icon}) => {
         return link ? (
           <Link to={link} key={text}>

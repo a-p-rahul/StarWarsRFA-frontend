@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { Table, TableContainer, Paper, TableHead, TableBody, TableRow, TableCell, Box, CircularProgress } from "@mui/material";
+import { Table, TableContainer, Paper, TableHead, TableBody, TableRow, TableCell, Box, Skeleton } from "@mui/material";
 import { v4 as uuidv4 } from 'uuid';
 
 const SimpleTable = ({header, arrangement, contents}) => {
@@ -25,9 +25,16 @@ const SimpleTable = ({header, arrangement, contents}) => {
         </Table>
       </TableContainer>
       {
-        !contents || !contents.length && (
-          <Box sx={{ minHeight: '5em', display: 'flex' }}>
-            <CircularProgress sx={{ margin: '10em auto' }}/>
+        (!contents || !contents.length) && (
+          <Box sx={{ minHeight: '5em' }}>
+            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
+            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
+            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
+            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
+            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
+            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
+            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
+            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
           </Box>
         )
       }
