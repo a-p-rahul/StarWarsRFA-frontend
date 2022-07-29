@@ -9,10 +9,12 @@ import {
   Route,
 } from "react-router-dom";
 import './App.css';
+import AppHeader from './components/AppHeader';
 
 const App = () => {
   return (
     <div className="App">
+      <AppHeader />
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/planets" element={<Planets />} />

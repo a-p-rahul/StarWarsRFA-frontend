@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {TABLE_HEADERS, TABLE_COLUMN_ARRANGEMENT} from './constants';
 import SimpleTable from 'src/components/SimpleTable';
-import { Card, CardContent, Box, LinearProgress, Table, TableContainer, TableHead, TableRow, TableCell, Paper, TableBody } from "@mui/material";
+import { Box, LinearProgress } from "@mui/material";
 import { initializeTable } from "./actions";
 
 const PlanetsList = ({ results, title, loading, initialise }) => {
@@ -21,15 +21,11 @@ const PlanetsList = ({ results, title, loading, initialise }) => {
           <LinearProgress />
         </Box>)
       }
-      <Card sx={{ minWidth: 275 }}>
-        <CardContent>
-          <SimpleTable
-            header={TABLE_HEADERS} 
-            arrangement={TABLE_COLUMN_ARRANGEMENT}
-            contents={results}
-          />
-        </CardContent>
-      </Card>
+        <SimpleTable
+          header={TABLE_HEADERS} 
+          arrangement={TABLE_COLUMN_ARRANGEMENT}
+          contents={results}
+        />
     </>
   );
 };
