@@ -1,4 +1,4 @@
-import { ACTIONS } from './PlanetsConstants.js';
+import { ACTIONS } from './SpeciesConstants.js';
 import axios from "axios";
 
 const isLoading = (isLoading = false) => {
@@ -25,7 +25,7 @@ const searchTable = (searchString) => {
 const initializeTable = () => {
   return dispatch => {
     dispatch(isLoading(true));
-    axios.get("/planets")
+    axios.get("/species")
       .then(response => {
         return response;
       })

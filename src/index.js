@@ -8,6 +8,10 @@ import thunk from 'redux-thunk';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from './reducers';
+const axios = require("axios");
+const { api } = require('./config');
+
+axios.defaults.baseURL = api;
 
 const store = createStore(reducer, applyMiddleware(thunk));
 

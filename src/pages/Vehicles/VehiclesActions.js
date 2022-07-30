@@ -25,7 +25,7 @@ const searchTable = (searchString) => {
 const initializeTable = () => {
   return dispatch => {
     dispatch(isLoading(true));
-    axios.get("http://localhost:3001/vehicles")
+    axios.get("/vehicles")
       .then(response => {
         return response;
       })

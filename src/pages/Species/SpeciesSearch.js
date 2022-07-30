@@ -2,9 +2,9 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { Box, TextField } from '@mui/material';
-import { searchTable } from "./VehiclesActions";
+import { searchTable } from "./SpeciesActions";
 
-const VehiclesSearch = ({search}) => {
+const PlanetsSearch = ({search}) => {
   return (
     <Box>
       <TextField
@@ -26,8 +26,8 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-VehiclesSearch.propTypes = {
+PlanetsSearch.propTypes = {
   search: PropTypes.func.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(VehiclesSearch);
+export default connect(null, mapDispatchToProps)(PlanetsSearch);
