@@ -1,5 +1,6 @@
 import React from 'react';
 import Welcome from './pages/Welcome';
+import NotFound from './pages/NotFound';
 import Planets from './pages/Planets';
 import Species from './pages/Species';
 import Vehicles from './pages/Vehicles';
@@ -13,7 +14,7 @@ import { Container } from '@mui/material';
 
 const App = () => {
   return (
-    <div className="App">
+    <div>
       <AppHeader />
       <Container maxWidth="xl" >
         <Routes>
@@ -22,7 +23,7 @@ const App = () => {
           <Route path="/species" element={<Species />} />
           <Route path="/vehicles" element={<Vehicles />} />
           <Route path="/people" element={<People />} />
-          <Route path="*" element={<Welcome />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>
     </div>

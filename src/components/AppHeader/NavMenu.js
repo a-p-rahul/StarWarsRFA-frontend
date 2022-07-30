@@ -9,6 +9,8 @@ import List from '@mui/material/List';
 import NavItem from "./NavItem";
 import { Link } from "react-router-dom";
 
+import './NavMenu.scss';
+
 const MenuItems = [
   {
     text: 'Planets',
@@ -34,16 +36,18 @@ const MenuItems = [
 
 const NavMenu = ({ onClose }) => (
   <Box
-    sx={{ width: 250 }}
+    className="nav-menu-box"
     role="presentation"
     onClick={onClose}
     onKeyDown={onClose}
   >
     <List>
-      <NavItem text={"GalaxyNet"} />
+      <Link className="nav-menu-link" to={"/"} key={"GalaxyNet"}>
+        <NavItem text={"GalaxyNet"} />
+      </Link>
       {MenuItems.map(({ text, link, icon}) => {
         return link ? (
-          <Link to={link} key={text}>
+          <Link className="nav-menu-link" to={link} key={text}>
             <NavItem text={text} icon={icon} key={text}/>
           </Link>
         ) : (<NavItem text={text} icon={icon} key={text}/>);

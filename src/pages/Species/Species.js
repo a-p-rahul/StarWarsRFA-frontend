@@ -2,8 +2,10 @@ import React from "react";
 import SpeciesSearch from './SpeciesSearch';
 import SpeciesList from "./SpeciesList";
 
+import './Species.scss';
+
 const Species = () => (
-  <main style={{ padding: "1rem 0" }}>
+  <main className="species-container">
     <h2>Species</h2>
     <SpeciesSearch/>
     <SpeciesList/>

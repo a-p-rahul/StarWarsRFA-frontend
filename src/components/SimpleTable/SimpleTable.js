@@ -3,17 +3,21 @@ import PropTypes from 'prop-types';
 import { Table, TableContainer, Paper, TableHead, TableBody, TableRow, TableCell, Box, Skeleton } from "@mui/material";
 import { v4 as uuidv4 } from 'uuid';
 
-const SimpleTable = ({header, arrangement, contents}) => {
+import './SimpleTable.scss';
+import NoContent from "./NoContent";
+
+const SimpleTable = ({ isLoading, header, arrangement, contents }) => {
   return (
     <>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table className="simple-table" aria-label="simple table">
           <TableHead>
             <TableRow>
               {  arrangement && arrangement.map((property) => (<TableCell>{header[property]}</TableCell>)) }
             </TableRow>
           </TableHead>
-          <TableBody>
+          { (!isLoading && contents &&contents.length > 0) && (
+            <TableBody>
               {
                 contents && contents.map((row) => (
                   <TableRow key={uuidv4()}>
@@ -21,28 +25,39 @@ const SimpleTable = ({header, arrangement, contents}) => {
                   </TableRow>
                 ))
               }
-          </TableBody>
+            </TableBody>
+            )
+          }
         </Table>
       </TableContainer>
       {
-        (!contents || !contents.length) && (
-          <Box sx={{ minHeight: '5em' }}>
-            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
-            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
-            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
-            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
-            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
-            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
-            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
-            <Skeleton sx={{ margin: '2em 0.5em', }} animation="wave" />
+          isLoading && (
+          <Box className="simple-table-skeletion-box">
+            <Skeleton className="simple-table-skeleton" animation="wave" />
+            <Skeleton className="simple-table-skeleton" animation="wave" />
+            <Skeleton className="simple-table-skeleton" animation="wave" />
+            <Skeleton className="simple-table-skeleton" animation="wave" />
+            <Skeleton className="simple-table-skeleton" animation="wave" />
+            <Skeleton className="simple-table-skeleton" animation="wave" />
+            <Skeleton className="simple-table-skeleton" animation="wave" />
+            <Skeleton className="simple-table-skeleton" animation="wave" />
           </Box>
         )
+      }
+      {
+        ( !isLoading && (!contents || !contents.length)) && (
+          <NoContent />
+        ) 
       }
     </>
   );
 };
+SimpleTable.defaultProps = {
+  isLoading: false,
+};
 
 SimpleTable.propTypes = {
+  isLoading: PropTypes.bool,
   header: PropTypes.shape({}),
   arrangement: PropTypes.arrayOf(PropTypes.string),
   contents: PropTypes.arrayOf(PropTypes.shape({})),

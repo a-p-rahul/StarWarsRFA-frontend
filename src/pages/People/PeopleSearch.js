@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 import { Box, TextField } from '@mui/material';
 import { searchTable } from "./PeopleActions";
 
+import './PeopleSearch.scss';
+
 const PeopleSearch = ({search}) => {
   return (
-    <Box>
+    <Box className="people-search-wrapper">
       <TextField
         id="filled-search"
-        label="Search"
+        label="Search by name"
         type="search"
         variant="filled"
         onChange={(e) => search(e.target.value)}

@@ -7,6 +7,8 @@ import { Box, LinearProgress } from "@mui/material";
 import { initializeTable } from "./SpeciesActions";
 import getSearchResultSelector from 'src/selectors/SearchResultSelector';
 
+import './SpeciesList.scss';
+
 const SpeciesList = ({ initialise }) => {
   const loading = useSelector((state) => state.planets.loading );
   const results = useSelector(getSearchResultSelector("species"));
@@ -16,11 +18,12 @@ const SpeciesList = ({ initialise }) => {
   return (
     <>
       { loading && (
-        <Box className="progressBar" sx={{ position: 'absolute', top: '0', width: '100%' }}>
+        <Box className='species-progressbar'>
           <LinearProgress />
         </Box>)
       }
         <SimpleTable
+          isLoading={loading}
           header={TABLE_HEADERS} 
           arrangement={TABLE_COLUMN_ARRANGEMENT}
           contents={results}

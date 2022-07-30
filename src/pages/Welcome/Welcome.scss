@@ -1,0 +1,8 @@
+.welcome-container {
+  height: 100vh;
+  text-align: center;
+  & h2 {
+    margin-top: 40vh;
+    vertical-align: middle;
+  }
+}

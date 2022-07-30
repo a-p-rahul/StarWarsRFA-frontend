@@ -7,6 +7,9 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import SideDrawer from "./NavDrawer";
 
+import './AppHeader.scss';
+import { Container } from "@mui/material";
+
 const SimpleAppBar = () => {
   const [state, setState] = useState({
     open: false,
@@ -20,10 +23,11 @@ const SimpleAppBar = () => {
   };
   
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box className="appheader-box" sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
           <IconButton
+            className="icon-button"
             size="large"
             edge="start"
             color="inherit"

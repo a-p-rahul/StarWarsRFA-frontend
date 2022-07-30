@@ -2,8 +2,10 @@ import React from "react";
 import PeopleSeach from './PeopleSearch';
 import PeopleList from "./PeopleList";
 
+import './People.scss';
+
 const People = () => (
-  <main style={{ padding: "1rem 0" }}>
+  <main className="people-container">
     <h2>People</h2>
     <PeopleSeach/>
     <PeopleList/>

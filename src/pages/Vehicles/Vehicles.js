@@ -2,8 +2,10 @@ import React from "react";
 import VehiclesSearch from './VehiclesSearch';
 import VehiclesList from "./VehiclesList";
 
+import './Vehicles.scss';
+
 const Vehicles = () => (
-  <main style={{ padding: "1rem 0" }}>
+  <main className="vehicles-container">
     <h2>Vehicles</h2>
     <VehiclesSearch/>
     <VehiclesList/>
