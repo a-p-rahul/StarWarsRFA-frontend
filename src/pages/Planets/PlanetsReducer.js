@@ -1,19 +1,18 @@
-import InitialState from "./InitialState";
-import { LOADING, INITIATE_LIST, SEARCH_LIST } from "./constants";
+import { ACTIONS, INITIAL_STATE } from "./PlanetsConstants";
 
-const Reducer = (state = InitialState, action) => {
+const Reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case LOADING:
+    case ACTIONS.LOADING:
       return {
         ...state,
         loading: action.payload,
       };
-    case SEARCH_LIST:
+    case ACTIONS.SEARCH_LIST:
       return {
         ...state,
         searchString: action.payload,
       };
-    case INITIATE_LIST:
+    case ACTIONS.INITIATE_LIST:
       return {
         ...state,
         list: action.payload,

@@ -1,23 +1,23 @@
-import { LOADING, INITIATE_LIST, SEARCH_LIST } from './constants.js';
+import { ACTIONS } from './VehiclesConstants.js';
 import axios from "axios";
 
 const isLoading = (isLoading = false) => {
   return {
-    type: LOADING,
+    type: ACTIONS.LOADING,
     payload: isLoading,
   };
 }
 
 const initiateTableList = (list = []) => {
   return {
-    type: INITIATE_LIST,
+    type: ACTIONS.INITIATE_LIST,
     payload: list,
   };
 }
 
 const searchTable = (searchString) => {
   return {
-    type: SEARCH_LIST,
+    type: ACTIONS.SEARCH_LIST,
     payload: searchString,
   };
 };
@@ -25,7 +25,7 @@ const searchTable = (searchString) => {
 const initializeTable = () => {
   return dispatch => {
     dispatch(isLoading(true));
-    axios.get("http://localhost:3001/planets")
+    axios.get("http://localhost:3001/vehicles")
       .then(response => {
         return response;
       })

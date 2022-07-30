@@ -1,8 +1,15 @@
-export const LOADING = 'LOADING';
+export const ACTIONS = Object.freeze({
+  LOADING: 'LOADING',
+  INITIATE_LIST: 'INITIATE_LIST',
+  SEARCH_LIST: 'SEARCH_LIST',
+});
 
-export const INITIATE_LIST = 'INITIATE_LIST';
+export const INITIAL_STATE = Object.freeze({
+  searchString: '',
+  loading: false,
+  list: [],
+});
 
-export const SEARCH_LIST = 'SEARCH_LIST';
 
 export const TABLE_HEADERS = Object.freeze({
   name: 'Name',
