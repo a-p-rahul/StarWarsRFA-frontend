@@ -1,10 +1,34 @@
-# Getting Started with Create React App
+# RFA App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We live in a galaxy far far away.
+We’re building a web portal where researchers can look up information about
+extra terrestrial people, vehicles, species and planets.
+We will use the Star Wars API to feed our system with information.
+
+## Agile Assessment
+This board contains all user stories:
+https://rfacxp.atlassian.net/projects/RFA/issues/?
+filter=allissues&orderby=issuekey%20ASC
+They are prioritised in order of value.
+
+## Installation
+
+1.  Install Dependencies
+
+    * [Node.js (version 6.x is recommended)](https://nodejs.org/en/)
+
+3.  Go to the project's root directory **cd /my/path/to/directory**
+4.  Run **npm install**
+5.  Start using it! **npm start**
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Install all the dependencies required for the app.
 
 ### `npm start`
 
@@ -13,11 +37,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -29,42 +48,30 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Time breakdown
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The tasks in this table are arranges in the order they were implemented. Times are approximate.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Time taken (hrs)   | Task                                                          |
+| ------------------ | ------------------------------------------------------------- |
+| 1:30               | Project setup and skeleton code                               |
+| 2:00               | Experiments with React Context                                |
+| 0:40               | Convert project to use Redux-thunk                            |
+| 1:20               | RFA-5: List all planets                                       |
+| 1:40               | RFA-1: Implement navigation to browse various datasets        |
+| 0:40               | RFA-8: Implement search function to the Planets list          |
+| 0:20 - 0:30        | RFA-4: List all Species                                       | 
+| 0:20 - 0:30        | RFA-3: List all Vehicles                                      |
+| 0:20 - 0:30        | RFA-2: List all People                                        |
+| 0:40               | RFA-1: Final styling changes                                  |
+| 0:20               | RFA-1: Readme changes                                         |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Notes
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* RFA-7 & RFA-6 are not implemented as of yet. As I got a comment asking for best effort at a reasonable time, I believe the current code demonstrates my skillset.
+* I used Material UI to help with implementing the UI in a mobile first manner. The Sass code included is basic. Advances features of SASS like variables and mixins will take time and more planning.
+* Nevertheless, My personal approach is that if Material UI, i.e make components that are styled mobile first and use them throughout the app so that minimum styling is required in individual components.
+* Testing would be a nice to have but is not implemented with in this project.
+* Perofessionally, I ahve used Redux with Thunk and Saga. Saga is more well rounded but is overkill for this project which is why Redux thunk was used.
+* React Context is not a replacement for a Redux middleware like Thunk. It is more like a data and logic teleportation tool. It is a pitty I ran into issues when I tired to use it this time.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
