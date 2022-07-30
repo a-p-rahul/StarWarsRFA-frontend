@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { TABLE_HEADERS, TABLE_COLUMN_ARRANGEMENT } from './SpeciesConstants';
+import { TABLE_HEADERS, TABLE_COLUMN_ARRANGEMENT } from './PeopleConstants';
 import SimpleTable from 'src/components/SimpleTable';
 import { Box, LinearProgress } from "@mui/material";
-import { initializeTable } from "./SpeciesActions";
+import { initializeTable } from "./PeopleActions";
 import getSearchResultSelector from 'src/selectors/SearchResultSelector';
 
-const SpeciesList = ({ initialise }) => {
+const PeopleList = ({ initialise }) => {
   const loading = useSelector((state) => state.planets.loading );
   const results = useSelector(getSearchResultSelector("species"));
   useEffect(() => {
@@ -37,8 +37,8 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-SpeciesList.propTypes = {
+PeopleList.propTypes = {
   initialise: PropTypes.func.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(SpeciesList);
+export default connect(null, mapDispatchToProps)(PeopleList);
