@@ -23,6 +23,15 @@ They are prioritised in order of value.
 3.  Run **npm install**
 4.  Start using it! **npm start**
 
+## Executing the project
+
+1. Checkout the backend for this frontend from [here](https://github.com/a-p-rahul/StarWarsRFA-backend/blob/develop/README.md).
+2. Follow the installation instructions to get the application started.
+3. Then follow the installation instructions of this project to get the application started.
+4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+Note: you can change the location of the backend to access by editing the `api` property in the `src/config.js` file.
+
 ## Available Scripts
 
 In the project directory, you can run:
