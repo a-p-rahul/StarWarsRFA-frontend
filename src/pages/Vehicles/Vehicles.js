@@ -1,14 +1,14 @@
 import React from "react";
-import VehiclesSearch from './VehiclesSearch';
+import VehiclesSearch from "./VehiclesSearch";
 import VehiclesList from "./VehiclesList";
 
-import './Vehicles.scss';
+import "./Vehicles.scss";
 
 const Vehicles = () => (
   <main className="vehicles-container">
     <h2>Vehicles</h2>
-    <VehiclesSearch/>
-    <VehiclesList/>
+    <VehiclesSearch />
+    <VehiclesList />
   </main>
 );
 

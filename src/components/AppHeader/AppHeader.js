@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
 import SideDrawer from "./NavDrawer";
 
-import './AppHeader.scss';
-import { Container } from "@mui/material";
+import "./AppHeader.scss";
 
 const SimpleAppBar = () => {
   const [state, setState] = useState({
@@ -16,12 +15,15 @@ const SimpleAppBar = () => {
   });
 
   const toggleDrawer = (open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
       return;
     }
     setState({ ...state, open: open });
   };
-  
+
   return (
     <Box className="appheader-box" sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -42,11 +44,7 @@ const SimpleAppBar = () => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <SideDrawer
-        open={state.open}
-        onClose={toggleDrawer(false)}
-      >
-      </SideDrawer>
+      <SideDrawer open={state.open} onClose={toggleDrawer(false)}></SideDrawer>
     </Box>
   );
 };

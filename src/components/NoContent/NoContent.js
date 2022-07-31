@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import './NoContent.scss';
+import "./NoContent.scss";
 
 const NoContent = () => {
   return (

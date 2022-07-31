@@ -1,3 +1,3 @@
-import Species from './Species';
+import Species from "./Species";
 
 export default Species;

@@ -1,4 +1,4 @@
-import { ACTIONS } from './PlanetsConstants.js';
+import { ACTIONS } from "./PlanetsConstants.js";
 import axios from "axios";
 
 const isLoading = (isLoading = false) => {
@@ -6,14 +6,14 @@ const isLoading = (isLoading = false) => {
     type: ACTIONS.LOADING,
     payload: isLoading,
   };
-}
+};
 
 const initiateTableList = (list = []) => {
   return {
     type: ACTIONS.INITIATE_LIST,
     payload: list,
   };
-}
+};
 
 const searchTable = (searchString) => {
   return {
@@ -22,23 +22,32 @@ const searchTable = (searchString) => {
   };
 };
 
+const populateSubjectsHomeWorld = async (subject) => {
+  const homeworld = await axios.get(subject.homeworld);
+  try {
+    subject.homeworld_name_data = homeworld.data;
+    subject.homeworld_name = homeworld.data.name ? homeworld.data.name : "n/a";
+  } catch (e) {
+    subject.homeworld_name_data = null;
+    subject.homeworld_name = "n/a";
+  }
+  return subject;
+};
+
 const initializeTable = () => {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(isLoading(true));
-    axios.get("/planets")
-      .then(response => {
+    axios
+      .get("/planets")
+      .then((response) => {
         return response;
       })
-      .then(response => response.data)
-      .then(json => {
+      .then((response) => response.data)
+      .then((json) => {
         dispatch(initiateTableList(json));
         dispatch(isLoading(false));
       });
   };
-}
-
-export {
-  isLoading,
-  searchTable,
-  initializeTable,
 };
+
+export { isLoading, searchTable, initializeTable, populateSubjectsHomeWorld };

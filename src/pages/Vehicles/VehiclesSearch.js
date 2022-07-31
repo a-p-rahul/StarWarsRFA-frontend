@@ -1,14 +1,14 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
-import { Box, TextField } from '@mui/material';
+import React from "react";
+import { PropTypes } from "prop-types";
+import { connect } from "react-redux";
+import { Box, TextField } from "@mui/material";
 import { searchTable } from "./VehiclesActions";
 
-import './VehiclesSearch.scss';
+import "./VehiclesSearch.scss";
 
-const VehiclesSearch = ({search}) => {
+const VehiclesSearch = ({ search }) => {
   return (
-    <Box  className="vehicles-search-wrapper">
+    <Box className="vehicles-search-wrapper">
       <TextField
         id="filled-search"
         label="Search by name"
@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     search: (searchString) => {
       dispatch(searchTable(searchString));
-    }
+    },
   };
 };
 

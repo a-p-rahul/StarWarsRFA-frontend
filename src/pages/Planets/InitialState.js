@@ -1,6 +1,6 @@
 // the below properties are intentionally generic
 const InitialState = {
-  searchString: '',
+  searchString: "",
   loading: false,
   list: [],
 };

@@ -1,4 +1,4 @@
-import { ACTIONS } from './PeopleConstants.js';
+import { ACTIONS } from "./PeopleConstants.js";
 import axios from "axios";
 
 const isLoading = (isLoading = false) => {
@@ -6,14 +6,14 @@ const isLoading = (isLoading = false) => {
     type: ACTIONS.LOADING,
     payload: isLoading,
   };
-}
+};
 
 const initiateTableList = (list = []) => {
   return {
     type: ACTIONS.INITIATE_LIST,
     payload: list,
   };
-}
+};
 
 const searchTable = (searchString) => {
   return {
@@ -23,22 +23,19 @@ const searchTable = (searchString) => {
 };
 
 const initializeTable = () => {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(isLoading(true));
-    axios.get("/people")
-      .then(response => {
+    axios
+      .get("/people")
+      .then((response) => {
         return response;
       })
-      .then(response => response.data)
-      .then(json => {
+      .then((response) => response.data)
+      .then((json) => {
         dispatch(initiateTableList(json));
         dispatch(isLoading(false));
       });
   };
-}
-
-export {
-  isLoading,
-  searchTable,
-  initializeTable,
 };
+
+export { isLoading, searchTable, initializeTable };

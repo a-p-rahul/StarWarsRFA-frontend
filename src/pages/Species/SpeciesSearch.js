@@ -1,12 +1,12 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
-import { Box, TextField } from '@mui/material';
+import React from "react";
+import { PropTypes } from "prop-types";
+import { connect } from "react-redux";
+import { Box, TextField } from "@mui/material";
 import { searchTable } from "./SpeciesActions";
 
-import './SpeciesSearch.scss';
+import "./SpeciesSearch.scss";
 
-const SpeciesSearch = ({search}) => {
+const SpeciesSearch = ({ search }) => {
   return (
     <Box className="species-search-wrapper">
       <TextField
@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     search: (searchString) => {
       dispatch(searchTable(searchString));
-    }
+    },
   };
 };
 

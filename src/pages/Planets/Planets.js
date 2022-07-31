@@ -1,13 +1,13 @@
 import React from "react";
-import PlanetsSearch from './PlanetsSearch';
+import PlanetsSearch from "./PlanetsSearch";
 import PlanetsList from "./PlanetsList";
 
-import './Planets.scss';
+import "./Planets.scss";
 
 const Planets = () => (
   <main className="planets-container">
     <h2>Planets</h2>
-    <PlanetsSearch/>
+    <PlanetsSearch />
     <PlanetsList />
   </main>
 );
