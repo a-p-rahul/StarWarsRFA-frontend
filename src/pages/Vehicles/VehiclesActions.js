@@ -27,12 +27,11 @@ const initializeTable = () => {
     dispatch(isLoading(true));
     axios
       .get("/vehicles")
-      .then((response) => {
-        return response;
-      })
       .then((response) => response.data)
       .then((json) => {
         dispatch(initiateTableList(json));
+      })
+      .finally(() => {
         dispatch(isLoading(false));
       });
   };

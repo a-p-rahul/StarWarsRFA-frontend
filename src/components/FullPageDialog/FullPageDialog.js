@@ -12,6 +12,8 @@ import {
 import SlideUpTransition from "./SlideUpTransition";
 import NoContent from "../NoContent";
 
+import './FullPageDialog.scss';
+
 const FullPageDialog = ({ open, title, onClose, children }) => {
   return (
     <Dialog
@@ -20,7 +22,7 @@ const FullPageDialog = ({ open, title, onClose, children }) => {
       onClose={onClose}
       TransitionComponent={SlideUpTransition}
     >
-      <AppBar sx={{ position: "relative" }}>
+      <AppBar className="fullpage-dialog-appbar">
         <Toolbar>
           <IconButton
             edge="start"
@@ -30,7 +32,7 @@ const FullPageDialog = ({ open, title, onClose, children }) => {
           >
             <CloseIcon />
           </IconButton>
-          <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+          <Typography className="fullpage-dialog-title" variant="h6" component="div">
             {title}
           </Typography>
         </Toolbar>
@@ -47,8 +49,8 @@ FullPageDialog.defaultProps = {
 
 FullPageDialog.propTypes = {
   open: PropTypes.bool,
-  title: PropTypes.bool.isRequired,
-  onClose: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
   children: PropTypes.element,
 };
 

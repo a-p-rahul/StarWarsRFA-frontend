@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { PROPERTY_DISPLAY_STRINGS, TABLE_COLUMN_ARRANGEMENT } from "./PeopleConstants";
@@ -8,10 +8,14 @@ import { initializeTable } from "./PeopleActions";
 import getSearchResultSelector from "src/selectors/SearchResultSelector";
 
 import "./PeopleList.scss";
+import PeopleDialog from "./PeopleDialog";
 
 const PeopleList = ({ initialise }) => {
   const loading = useSelector((state) => state.planets.loading);
-  const results = useSelector(getSearchResultSelector("species"));
+  const results = useSelector(getSearchResultSelector("people"));
+  const [openDialog, isOpenDialog] = useState(false);
+  const [dialogProperty, setDialogProperty] = useState(null);
+  const [dialogData, setDialogData] = useState(null);
   useEffect(() => {
     initialise();
   }, []);
@@ -27,6 +31,21 @@ const PeopleList = ({ initialise }) => {
         header={PROPERTY_DISPLAY_STRINGS}
         arrangement={TABLE_COLUMN_ARRANGEMENT}
         contents={results}
+        onDialogOpen={(data, property) => {
+          setDialogData(data);
+          setDialogProperty(property);
+          isOpenDialog(true);
+        }}
+      />
+      <PeopleDialog
+        open={openDialog}
+        property={dialogProperty}
+        data={dialogData}
+        onClose={() => {
+          isOpenDialog(false);
+          setDialogData(null);
+          setDialogProperty(null);
+        }}
       />
     </>
   );

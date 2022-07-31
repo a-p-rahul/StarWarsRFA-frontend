@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import FullPageDialog from "src/components/FullPageDialog";
 import { ViewPlanetDialogContent } from "src/pages/Planets";
-import { PROPERTY_DISPLAY_STRINGS } from "./SpeciesConstants";
+import { PROPERTY_DISPLAY_STRINGS } from "./PeopleConstants";
 
-const SpeciesDialog = ({ open, onClose, data, property }) => {
+const PeopleDialog = ({ open, onClose, data, property }) => {
   // I avoid methods like below, but keeping it simple this time.
   const renderDialogContent = (param) => {
     switch (param) {
@@ -19,7 +19,7 @@ const SpeciesDialog = ({ open, onClose, data, property }) => {
       open={open}
       title={
         (data &&
-          `Species: ${data.name} | ${PROPERTY_DISPLAY_STRINGS[property]}`) ||
+          `Person: ${data.name} | ${PROPERTY_DISPLAY_STRINGS[property]}`) ||
         ""
       }
       onClose={onClose}
@@ -29,18 +29,18 @@ const SpeciesDialog = ({ open, onClose, data, property }) => {
   );
 };
 
-SpeciesDialog.defaultProps = {
+PeopleDialog.defaultProps = {
   open: false,
   onclose: () => {},
   data: {},
   property: undefined,
 };
 
-SpeciesDialog.propTypes = {
+PeopleDialog.propTypes = {
   open: PropTypes.bool,
   onclose: PropTypes.func,
   data: PropTypes.shape({}),
   property: PropTypes.string,
 };
 
-export default SpeciesDialog;
+export default PeopleDialog;

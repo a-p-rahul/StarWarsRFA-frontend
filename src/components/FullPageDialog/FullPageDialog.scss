@@ -1,0 +1,9 @@
+.fullpage-dialog {
+  &-appbar {
+    position: relative !important;
+  }
+  &-title {
+    margin-left: 1em;
+    flex: 1;
+  }
+}

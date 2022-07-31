@@ -1,5 +1,6 @@
-import { ACTIONS } from "./PeopleConstants.js";
 import axios from "axios";
+import { ACTIONS } from "./PeopleConstants.js";
+import { populateSubjectsHomeWorld } from "src/pages/Planets/PlanetsActions.js";
 
 const isLoading = (isLoading = false) => {
   return {
@@ -27,12 +28,14 @@ const initializeTable = () => {
     dispatch(isLoading(true));
     axios
       .get("/people")
-      .then((response) => {
-        return response;
-      })
       .then((response) => response.data)
+      .then((json) =>
+        Promise.all(json.map((species) => populateSubjectsHomeWorld(species)))
+      )
       .then((json) => {
         dispatch(initiateTableList(json));
+      })
+      .finally(() => {
         dispatch(isLoading(false));
       });
   };

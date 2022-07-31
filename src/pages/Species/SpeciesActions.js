@@ -28,9 +28,6 @@ const initializeTable = () => {
     dispatch(isLoading(true));
     axios
       .get("/species")
-      .then((response) => {
-        return response;
-      })
       .then((response) => response.data)
       .then((json) =>
         Promise.all(json.map((species) => populateSubjectsHomeWorld(species)))
