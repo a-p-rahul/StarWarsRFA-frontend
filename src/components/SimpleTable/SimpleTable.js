@@ -11,7 +11,6 @@ import {
   Box,
   Skeleton,
 } from "@mui/material";
-import { v4 as uuidv4 } from "uuid";
 
 import "./SimpleTable.scss";
 import NoContent from "../NoContent";
@@ -40,7 +39,7 @@ const SimpleTable = ({
             <TableBody>
               {contents &&
                 contents.map((row) => (
-                  <TableRow key={uuidv4()}>
+                  <TableRow>
                     {arrangement &&
                       arrangement.map((property) => (
                         <TableCell>

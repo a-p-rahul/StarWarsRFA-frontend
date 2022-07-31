@@ -14,7 +14,7 @@ NavDrawer.defaultProps = {
 };
 
 NavDrawer.propTypes = {
-  open: PropTypes.string,
+  open: PropTypes.bool,
   onClose: PropTypes.func.isRequired,
 };
 

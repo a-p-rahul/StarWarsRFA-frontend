@@ -5,9 +5,8 @@ import PetsIcon from "@mui/icons-material/Pets";
 import SnowmobileIcon from "@mui/icons-material/Snowmobile";
 import PeopleIcon from "@mui/icons-material/People";
 import Box from "@mui/material/Box";
-import List from "@mui/material/List";
+import { List, ListItemText } from "@mui/material";
 import NavItem from "./NavItem";
-import { Link } from "react-router-dom";
 
 import "./NavMenu.scss";
 
@@ -42,18 +41,10 @@ const NavMenu = ({ onClose }) => (
     onKeyDown={onClose}
   >
     <List>
-      <Link className="nav-menu-link" to={"/"} key={"GalaxyNet"}>
-        <NavItem text={"GalaxyNet"} />
-      </Link>
-      {MenuItems.map(({ text, link, icon }) => {
-        return link ? (
-          <Link className="nav-menu-link" to={link} key={text}>
-            <NavItem text={text} icon={icon} key={text} />
-          </Link>
-        ) : (
-          <NavItem text={text} icon={icon} key={text} />
-        );
-      })}
+      <NavItem text={"GalaxyNet"} link="/"/>
+      { MenuItems.map(({ text, link, icon }) => (
+          <NavItem text={text} icon={icon} itemkey={text} link={link} />
+      )) }
     </List>
   </Box>
 );

@@ -66,6 +66,9 @@ The tasks in this table are arranges in the order they were implemented. Times a
 | 0:20 - 0:30      | RFA-2: List all People                                 |
 | 0:40             | RFA-1: Final styling changes                           |
 | 0:20             | RFA-1: Readme changes                                  |
+| 2:30             | RFA-7: Retrieve homeworld for a Species and display in a modal. Other app-wide code consistency changes |
+| 1:20             | RFA-7: Retrieve homeworld for a Person and display in a modal. Other app-wide code consistency changes |
+| 0:20             | RFA-1: More code consistency changes and attempt to resolve  console errors |
 
 ## Notes
 
