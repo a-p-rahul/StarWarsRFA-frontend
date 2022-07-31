@@ -1,4 +1,4 @@
-# RFA App
+# StarWarsRFA Frontend
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 We live in a galaxy far far away.
